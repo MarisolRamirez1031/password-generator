@@ -7,10 +7,21 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var symbols = ["!", "#", "$", "%", "@", "&", "'", "*", "+", "(", ")", "-", ".", "_", ";", "/", ":", ";", "<", "=", ">", "?", "~"];
 
 // question prompts 
-var generateBtnPrompt = function () {
-
+var genBtnPrompt = function () {
   
-}
+  var okayNumbers = confirm("Click 'OK' if you'd like to have generated numbers in your password.");
+
+  var okayLowerCase = confirm("Click 'OK' if you want lowerCase characters to be generated in your password.");
+
+  var okayUpperCase = confirm("Click 'OK' if you want upperCase characters to be generated in your password.");
+
+  var okaySymbols = confirm("Click 'OK' to generate symbol characters within your password.");
+
+  if (!(okayNumbers || okayLowerCase || okayUpperCase || okaySymbols)) {
+      alert("You need to pick at least one option!");
+      return genBtnPrompt()
+  }
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
