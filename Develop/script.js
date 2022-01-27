@@ -7,7 +7,7 @@ var symbols = ["!", "#", "$", "%", "@", "&", "'", "*", "+", "(", ")", "-", ".", 
 // question prompts for password creation
 function generatePassword() {
   
-  var confirmNumber = confirm("Click 'OK' if you'd like to have generated numbers in your password.");
+  var confirmNumber = confirm("Click 'OK' if you'd like to have numbers generated in your password.");
 
   var confirmLowerCase = confirm("Click 'OK' if you want lowerCase characters to be generated in your password.");
 
@@ -56,37 +56,13 @@ for(var i = 0; i < passwordLength; i++){
 
 return password;
 
+}
+
 function getRandomCharacter(array){
-  var index = Math.floor(Math.random()array.length);
+  var index = Math.floor(Math.random()*array.length);
   return array[index];
 }
 
-
-//function generatePassword() {
-  // convert a string to an integer
-  var passwordLength = parseInt(prompt("How long would you like your password to be? Please pick a number between (8-150)"));
-    if (passwordLength < 8 || passwordLength > 150 || passwordLength === "" || isNaN(passwordLength)) {
-      alert("Please choose a number between (8-150)");
-};
-
-var password = "";
-
-
-    // for loop to generate the possibilities
-    for (var i = 0; i < passwordLength; i++) {
-
-        if (confirmNumber === true && confirmLowerCase === true && confirmUpperCase === true && confirmSymbols === true) {
-            result += (allChar[(Math.floor(Math.random() * allChar.length))]);
-        }
-        else if (confirmLowerCase === true && confirmNumber === true) {
-            result += (lowerNum[(Math.floor(Math.random() * lowerNum.length))]);
-        }
-        
-  }
-
-    //this returns the value to the password variable declared created below and inserts it into the HTML textarea using the querySelector
-    return result;
-};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
