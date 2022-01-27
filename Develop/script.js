@@ -17,8 +17,9 @@ function generatePassword() {
 
   var passwordLength = parseInt(prompt("How long would you like your password to be? Please pick a number between (8-150)"));
   
-  var password = "";
+  var password= "";
 
+    // for loop to generate the possibilities
   var passwordType = [];
   if(confirmNumber) {
     passwordType = passwordType.concat(Numbers);
@@ -32,12 +33,33 @@ function generatePassword() {
   if(confirmSymbols) {
     passwordType = passwordType.concat(symbols);
   }
-
   
-
-  if (!(confirmNumbers || confirmLowerCase || confirmUpperCase || confirmSymbols)) {
+  if (!(confirmNumber || confirmLowerCase || confirmUpperCase || confirmSymbols)) {
       alert("You need to pick at least one!");
+      return null;
   };
+
+if(typeof passwordLength === 'number') {
+  if((passwordLength <8) || (passwordLength>150)) {
+    alert("You must pick a number between 8 and 150");
+    return null;
+  }
+} else {
+    alert("Must be a numeric character!");
+    return null;
+}
+
+for(var i = 0; i < passwordLength; i++){
+  var randomCharacter = getRandomCharacter(passwordType);
+  password += randomCharacter;
+}
+
+return password;
+
+function getRandomCharacter(array){
+  var index = Math.floor(Math.random()array.length);
+  return array[index];
+}
 
 
 //function generatePassword() {
@@ -47,7 +69,7 @@ function generatePassword() {
       alert("Please choose a number between (8-150)");
 };
 
-var result = "";
+var password = "";
 
 
     // for loop to generate the possibilities
