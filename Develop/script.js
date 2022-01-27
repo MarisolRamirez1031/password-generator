@@ -1,5 +1,3 @@
-// Assignment code here
-
 // data variables
 var Numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -20,7 +18,21 @@ function generatePassword() {
   var passwordLength = parseInt(prompt("How long would you like your password to be? Please pick a number between (8-150)"));
   
   var password = "";
-  
+
+  var passwordType = [];
+  if(confirmNumber) {
+    passwordType = passwordType.concat(Numbers);
+  }
+  if(confirmLowerCase) {
+    passwordType = passwordType.concat(lowerCase);
+  }
+  if(confirmUpperCase) {
+    passwordType = passwordType.concat(upperCase);
+  }
+  if(confirmSymbols) {
+    passwordType = passwordType.concat(symbols);
+  }
+
   
 
   if (!(confirmNumbers || confirmLowerCase || confirmUpperCase || confirmSymbols)) {
